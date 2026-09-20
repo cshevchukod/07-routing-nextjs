@@ -24,9 +24,15 @@ export default function Modal({ children, onClose }: Props) {
       <div className={css.modal}>
         {children}
 
-        <button className={css.closeButton} type="button" onClick={handleClose}>
-          Close
-        </button>
+        {!onClose && (
+          <button
+            className={css.closeButton}
+            type="button"
+            onClick={handleClose}
+          >
+            Close
+          </button>
+        )}
       </div>
     </div>
   );
