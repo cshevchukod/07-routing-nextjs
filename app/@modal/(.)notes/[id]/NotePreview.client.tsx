@@ -3,10 +3,11 @@
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 
+import Modal from '@/components/Modal/Modal';
+import NotePreview from '@/components/NotePreview/NotePreview';
 import { fetchNoteById } from '@/lib/api';
-import css from './NoteDetails.module.css';
 
-export default function NoteDetailsClient() {
+export default function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();
 
   const {
@@ -28,18 +29,8 @@ export default function NoteDetailsClient() {
   }
 
   return (
-    <main className={css.main}>
-      <div className={css.container}>
-        <div className={css.item}>
-          <div className={css.header}>
-            <h2>{note.title}</h2>
-          </div>
-
-          <p className={css.tag}>{note.tag}</p>
-          <p className={css.content}>{note.content}</p>
-          <p className={css.date}>{note.createdAt}</p>
-        </div>
-      </div>
-    </main>
+    <Modal>
+      <NotePreview note={note} />
+    </Modal>
   );
 }

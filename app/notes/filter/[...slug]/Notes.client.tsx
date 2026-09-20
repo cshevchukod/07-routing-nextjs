@@ -14,10 +14,10 @@ import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
 import Modal from '@/components/Modal/Modal';
 import NoteForm from '@/components/NoteForm/NoteForm';
-import { createNote, deleteNote, fetchNotes } from '@/lib/api/notesApi';
+import { createNote, deleteNote, fetchNotes } from '@/lib/api';
 import type { NewNote } from '@/types/note';
 
-import css from './NotesPage.module.css';
+import css from '../../NotesPage.module.css';
 
 type Props = {
   tag?: string;
